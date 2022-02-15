@@ -1,0 +1,30 @@
+{% extends "calculator/base.html" %}
+
+{% load bootstrap5 %}
+
+
+{% block page_header %}{% endblock page_header %}
+
+{% block content%}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome ! </h1>
+    <br></br>
+    <p class="text-primary" style="font-size: x-large" >You can calculate the determinant of sqaure Matrices here. </p>
+    <hr class="my-4">
+    <p>Enter (N) which is the Dimension of your N*N matrix. [N must be between 1 to 9]</p>
+    <p class="lead">
+        <form class="form" action ="{% url 'calculator:set_demensions' %}" method = "post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+
+            {% buttons %}
+                <button class="btn btn-info" name="submit">Submit</button>
+            {% endbuttons %}
+        </form>
+    
+    </p>
+  </div>
+
+{% endblock content%}
+

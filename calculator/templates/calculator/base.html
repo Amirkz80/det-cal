@@ -1,0 +1,48 @@
+{% load bootstrap5 %}
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1, shrink-to-fit=no">
+        <title>ِDeterminant Calculator</title>
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% bootstrap_messages %}
+    </head>
+
+    <body>
+
+        <div id="navbar" class="mb-4">
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container justify-content-center"  >
+                <a class="navbar-brand" href="{% url 'calculator:main_page' %}">
+                    <span style="text-align: center;">Determinant Calculator</span>
+                </a>
+                </div>
+            </nav>
+        </div>
+
+        <main>
+            <div>
+                {% block page_header %}{% endblock page_header %}
+            </div>
+            <div>
+                {% block content %}{% endblock content %}
+            </div>
+        </main>
+    
+        
+    </body>
+
+    <nav class="navbar fixed-bottom navbar-dark bg-primary py-0 text-end">
+        <div class="container justify-content-center">
+          <a class="navbar-brand text-dark" href="http://www.usc.ac.ir/"><span style="text-decoration: underline; color: white;">University of Science and Culture</span> </a>
+    </nav>
+
+</html>

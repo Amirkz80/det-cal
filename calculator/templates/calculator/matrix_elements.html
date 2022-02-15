@@ -1,0 +1,44 @@
+{% extends "calculator/base.html" %}
+
+{% load bootstrap5 %}
+
+
+{% block page_header %}
+  <p style="text-align: center; font-size: x-large;" class="text-primary">Please enter the data into matrix cells</p>
+{% endblock page_header %}
+
+<br></br>
+
+{% block content %}
+  <div style="display: block; text-align: center;">
+  <form class="form" style="margin: auto;" action ="{% url 'calculator:result' %}" method = "post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {% for form in formset %}
+
+      {%  if form.keywargs %}
+      <div class="mb-3"></div>
+        <div style="text-align: center;" class="mb-4">
+          <!--Number of row-->
+          <span style="text-decoration: underline;" >{{ form.keywargs }}</span> <span style="color: black">&cudarrr;</span>
+        </div>
+
+      {% endif %} 
+
+
+      <span class="text-primary" >{{ form.form_kwargs }}</span>
+      {{ form.as_table }}
+      <div class="mb-2"></div>
+
+    {% endfor %}
+
+  <br></br>
+
+  <input class="btn btn-info" type="submit" value="Submit">
+  </form>
+
+  <br></br>
+  <br></br>
+
+  </div>
+{% endblock content %}

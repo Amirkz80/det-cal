@@ -1,0 +1,20 @@
+{% extends "calculator/base.html" %}
+
+
+{% block page_header %}
+  <p class="text-primary" style="font-size: x-large; text-align: center;">The determinant of your matrix = <span style="text-decoration: underline;" class="text-success" >{{ determinant }}</span></p>
+{% endblock page_header %}
+
+{% block content %}
+
+  <p style="text-align: center; font-size: x-large;" class="text-primary">Your matrix : </p>
+  <div style="text-align: center;"> 
+    {% for row in matrix %}
+      {% for column in row %}
+        <span class="text-success" style="font-size: large;">{{ column }} </span>&nbsp;
+      {% endfor %}
+      <br></br>
+    {% endfor %}
+    <br></br>
+  </div>
+{% endblock content %}    
